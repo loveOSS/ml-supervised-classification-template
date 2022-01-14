@@ -49,11 +49,17 @@ def run(fold, model):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Train the Data using a model and a fold.",
+    )
 
-    parser.add_argument("--fold", type=int)
+    parser.add_argument("--fold", type=int, default=0, help="The fold [0, 4].")
 
-    parser.add_argument("--model", type=str)
+    parser.add_argument(
+        "--model",
+        type=str,
+        help="See src/model_dispatcher file.",
+    )
 
     args = parser.parse_args()
     run(fold=args.fold, model=args.model)
