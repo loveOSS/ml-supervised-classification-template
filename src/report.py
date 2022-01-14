@@ -54,9 +54,11 @@ def run(fold):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Display a table with all the models on a specific fold.'
+    )
 
-    parser.add_argument("--fold", type=int)
+    parser.add_argument("--fold", type=int, default=0, help="The fold [0, 4].")
 
     args = parser.parse_args()
     run(fold=args.fold)
